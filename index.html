@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>С Днём рождения! | Открытка</title>
+    <style>
+        @font-face {
+            font-family: 'Involve';
+            src: url('fonts/Involve-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Involve Black';
+            src: url('fonts/Involve-Black.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Denistina Regular';
+            src: url('fonts/Denistina-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Involve', 'Century Gothic', sans-serif;
+            padding: 10px;
+        }
+
+        /* Десктопная версия*/
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            background-image: url('frame.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .card-inner {
+            padding: 150px 60px 110px 60px;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-greeting {
+            font-family: 'Denistina Regular', cursive;
+            font-size: 40px;
+            color: #E2001B;
+            text-align: center;
+            line-height: 1.2;
+            max-width: 60%;
+            margin: 5px auto 5px auto;
+        }
+
+        .message {
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #2c3e44;
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto 10px auto;
+        }
+        .message p {
+            margin-bottom: 12px;
+        }
+
+        .signature {
+            text-align: right;
+            border-top: 2px solid #E2001B;
+            padding-top: 16px;
+            margin-top: 10px;
+        }
+        .signature-line {
+            font-family: 'Denistina Regular', cursive;
+            font-size: 30px;
+            color: #234292;
+            margin-bottom: 6px;
+        }
+        .signature-name {
+            font-family: 'Involve Black', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+        .signature-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #5b6e8a;
+            margin-top: 4px;
+            margin-bottom: 20px;
+        }
+
+
+        @media (max-width: 1000px) {
+           .card {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            background-image: url('frame.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .card-inner {
+            padding: 190px 60px 150px 60px;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-greeting {
+            font-family: 'Denistina Regular', cursive;
+            font-size: 32px;
+            color: #E2001B;
+            text-align: center;
+            line-height: 1.2;
+            max-width: 100%;
+            margin: 5px auto 5px auto;
+        }
+
+        .message {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #2c3e44;
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto 10px auto;
+        }
+        .message p {
+            margin-bottom: 12px;
+        }
+
+        .signature {
+            text-align: right;
+            border-top: 2px solid #E2001B;
+            padding-top: 16px;
+            margin-top: 5px;
+        }
+        .signature-line {
+            font-family: 'Denistina Regular', cursive;
+            font-size: 25px;
+            color: #234292;
+            margin-bottom: 6px;
+        }
+        .signature-name {
+            font-family: 'Involve Black', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+        .signature-title {
+            font-size: 11px;
+            font-weight: 500;
+            color: #5b6e8a;
+            margin-top: 4px;
+            margin-bottom: 20px;
+        }
+
+        }
+
+        /* Мобильная версия (переопределяем на абсолютное позиционирование) */
+        @media (max-width: 770px) {
+            .card {
+                position: relative;
+                max-width: 1000px;
+                width: 100%;
+                background-image: url('frame-mobile.png');
+            }
+            .card-inner {
+                display: none; /* скрываем старый контент */
+            }
+            /* Рамка как обычное изображение */
+            .frame-img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            /* Текст поверх рамки */
+            .text-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 15% 8%;
+                box-sizing: border-box;
+            }
+            .main-greeting-mobile {
+                font-family: 'Denistina Regular', cursive;
+                font-size: 39px;
+                color: #E2001B;
+                text-align: center;
+                line-height: 1.2;
+                max-width: 90%;
+                margin-bottom: 6%;
+            }
+            .message-mobile {
+                font-size: 17px;
+                font-weight: 600;
+                line-height: 1.6;
+                color: #2c3e44;
+                text-align: center;
+                max-width: 95%;
+                margin-bottom: 6%;
+            }
+            .message-mobile p {
+                margin-bottom: 12px;
+            }
+            .signature-mobile {
+                text-align: right;
+                border-top: 2px solid #E2001B;
+                padding-top: 17px;
+                width: 85%;
+            }
+            .signature-line-mobile {
+                font-family: 'Denistina Regular', cursive;
+                font-size: 27px;
+                color: #234292;
+                margin-bottom: 6px;
+            }
+            .signature-name-mobile {
+                font-family: 'Involve Black', sans-serif;
+                font-weight: 800;
+                font-size: 17px;
+                color: #1a1a1a;
+            }
+            .signature-title-mobile {
+                font-size: 11px;
+                font-weight: 500;
+                color: #5b6e8a;
+                margin-top: 4px;
+            }
+        }
+
+        /* Дополнительная коррекция для очень маленьких экранов */
+        @media (max-width: 550px) {
+            .text-overlay {
+                padding: 12% 6%;
+            }
+            .main-greeting-mobile {
+                font-size: 30px;
+                max-width: 95%;
+            }
+            .message-mobile {
+                font-size: 13px;
+            }
+            .signature-mobile {
+                width: 95%;
+            }
+            .signature-line-mobile {
+                font-size: 22px;
+            }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-inner, .text-overlay {
+            animation: fadeUp 0.35s ease forwards;
+        }
+    </style>
+</head>
+<body>
+<!-- Десктопная версия (использует фон и card-inner) -->
+<div class="card desktop-version">
+    <div class="card-inner">
+        <div class="main-greeting">Примите искренние поздравления с Днем рождения!</div>
+        <div class="message">
+            <p>Желаем Вам крепкого здоровья, благополучия, неиссякаемой энергии и новых достижений во всех начинаниях. Пусть каждый день приносит радость, вдохновение и уверенность в завтрашнем дне, а рядом всегда будут надежные люди, поддержка и тепло близких.</p>
+            <p>Пусть успех сопутствует всем Вашим делам, а жизнь будет наполнена яркими событиями, гармонией и счастьем!</p>
+        </div>
+        <div class="signature">
+            <div class="signature-line">С уважением,</div>
+            <div class="signature-name">М.Ю. Захарова</div>
+            <div class="signature-title">Председатель Избирательной комиссии Херсонской области</div>
+        </div>
+    </div>
+</div>
+
+<!-- Мобильная версия (абсолютное позиционирование поверх картинки) -->
+<div class="card mobile-version" style="display: none;">
+    <picture>
+        <source srcset="frame-mobile.png">
+        <img class="frame-img" src="frame-mobile.png" alt="Рамка">
+    </picture>
+    <div class="text-overlay">
+        <div class="main-greeting-mobile">Примите искренние поздравления с Днем рождения!</div>
+        <div class="message-mobile">
+            <p>Желаем Вам крепкого здоровья, благополучия, неиссякаемой энергии и новых достижений во всех начинаниях. Пусть каждый день приносит радость, вдохновение и уверенность в завтрашнем дне, а рядом всегда будут надежные люди, поддержка и тепло близких.</p>
+            <p>Пусть успех сопутствует всем Вашим делам, а жизнь будет наполнена яркими событиями, гармонией и счастьем!</p>
+        </div>
+        <div class="signature-mobile">
+            <div class="signature-line-mobile">С уважением,</div>
+            <div class="signature-name-mobile">М.Ю. Захарова</div>
+            <div class="signature-title-mobile">Председатель Избирательной комиссии Херсонской области</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Переключение между десктопной и мобильной версией в зависимости от ширины экрана
+    function toggleVersions() {
+        const desktop = document.querySelector('.desktop-version');
+        const mobile = document.querySelector('.mobile-version');
+        if (window.innerWidth <= 770) {
+            desktop.style.display = 'none';
+            mobile.style.display = 'block';
+        } else {
+            desktop.style.display = 'block';
+            mobile.style.display = 'none';
+        }
+    }
+    window.addEventListener('load', toggleVersions);
+    window.addEventListener('resize', toggleVersions);
+</script>
+</body>
+</html>
